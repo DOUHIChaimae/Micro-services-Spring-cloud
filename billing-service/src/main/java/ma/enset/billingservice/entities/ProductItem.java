@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import ma.enset.billingservice.models.Customer;
+import ma.enset.billingservice.models.Product;
 
 @Entity
 @NoArgsConstructor
@@ -22,5 +23,5 @@ public class ProductItem {
     @ManyToOne
     private Bill bill;
     @Transient
-    private Customer customer;
+    private Product product;
 }
