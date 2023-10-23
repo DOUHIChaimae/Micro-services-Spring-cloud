@@ -1,5 +1,6 @@
 package ma.enset.billingservice.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -18,10 +19,12 @@ public class ProductItem {
     private Long id;
     private double quantity;
     private double price;
-    private  long productID;
-    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
+    private long productID;
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     @ManyToOne
     private Bill bill;
     @Transient
     private Product product;
+    @Transient
+    private String productName;
 }
