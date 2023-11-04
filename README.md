@@ -153,18 +153,18 @@ la sérialisation et la désérialisation des données JSON.
   @Entity
   @Data @NoArgsConstructor @AllArgsConstructor
   public class ProductItem {
-  @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private Long id;
-  private double quantity;
-  private double price;
-  private Long productId;
-  @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
-  @ManyToOne
-  private Bill bill;
-  @Transient
-  private Product product;
-  @Transient
-  private  String productName;
+      @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+      private Long id;
+      private double quantity;
+      private double price;
+      private Long productId;
+      @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+      @ManyToOne
+      private Bill bill;
+      @Transient
+      private Product product;
+      @Transient
+      private  String productName;
   }
 ```
 * BillRepository
@@ -179,7 +179,7 @@ la sérialisation et la désérialisation des données JSON.
     
 ```java 
   public interface ProductItemRepository extends JpaRepository<ProductItem, Long> {
-  public Collection<ProductItem> findById(long id);
+    public Collection<ProductItem> findById(long id);
   }
 ```
 * CustomerRestClient
@@ -187,34 +187,34 @@ la sérialisation et la désérialisation des données JSON.
 ```java
   @FeignClient(name = "CUSTOMER-SERVICE")
   public interface CustomerRestClient {
-  @GetMapping(path = "/customers/{id}")
-  Customer getCustomerById(@PathVariable(name = "id") Long id);
+      @GetMapping(path = "/customers/{id}")
+      Customer getCustomerById(@PathVariable(name = "id") Long id);
   }
 ```
 * ProductItemRestClient
 ```java
   @FeignClient(name = "PRODUCT-SERVICE")
   public interface ProductItemRestClient {
-  @GetMapping(path = "/products")
-  PagedModel<Product> pageProducts(@RequestParam(name = "page") int page, @RequestParam(name = "size") int size);
-  @GetMapping(path = "/products")
-  PagedModel<Product> pageProducts();
-  @GetMapping(path = "/products/{id}")
-  Product getProductById(@PathVariable Long id);
+      @GetMapping(path = "/products")
+      PagedModel<Product> pageProducts(@RequestParam(name = "page") int page, @RequestParam(name = "size") int size);
+      @GetMapping(path = "/products")
+      PagedModel<Product> pageProducts();
+      @GetMapping(path = "/products/{id}")
+      Product getProductById(@PathVariable Long id);
   }
 ```
 * BillRestController
 ```java
   @GetMapping(path = "/fullBill/{id}")
   public Bill getBill(@PathVariable(name = "id") Long id) {
-  Bill bill = billRepository.findById(id).get();
-  bill.setCustomer(customerRestClient.getCustomerById(bill.getCustomerID()));
-  bill.getProductItems().forEach(
-  productItem -> {
-  Product product = productItemRestClient.getProductById(productItem.getProductID());
-  productItem.setProduct(product);}
-  );
-  return bill;
+      Bill bill = billRepository.findById(id).get();
+      bill.setCustomer(customerRestClient.getCustomerById(bill.getCustomerID()));
+      bill.getProductItems().forEach(
+      productItem -> {
+      Product product = productItemRestClient.getProductById(productItem.getProductID());
+      productItem.setProduct(product);}
+      );
+      return bill;
   }
 ```
 ![img_4.png](captures/img_4.png)
