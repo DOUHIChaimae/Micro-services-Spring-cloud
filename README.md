@@ -76,7 +76,7 @@ ProductRepository
 ![img_2.png](captures/img_2.png)
 
 ## Spring Cloud Gateway
-Spring Cloud Gateway qui vise à fournir une API efficace pour créer des
+Spring Cloud Gateway vise à fournir une API efficace pour créer des
 passerelles dans les microservices.
 
 1. Configuration statistique de Spring Cloud Gateway basée sur appliation.yml
