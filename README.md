@@ -76,9 +76,8 @@ ProductRepository
 ![img_2.png](captures/img_2.png)
 
 ## Spring Cloud Gateway
-Spring Cloud Gateway est un projet relativement nouveau qui vise à fournir une API simple mais efficace pour créer des
-passerelles dans les microservices. Il est basé sur Spring Boot 2.x et Spring WebFlux. Il utilise le nouveau projet
-Reactor pour fournir un modèle de programmation réactif.
+Spring Cloud Gateway qui vise à fournir une API efficace pour créer des
+passerelles dans les microservices.
 
 1. Configuration statistique de Spring Cloud Gateway basée sur appliation.yml
 
