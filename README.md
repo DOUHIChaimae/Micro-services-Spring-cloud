@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Activité pratique N°2 : Architectures Micro-services avec Spring cloud
 
 ## Table de matières
@@ -244,3 +245,6 @@ lien du repo front : https://github.com/DOUHIChaimae/ecom-web-app:
 ## 🔗 About me :
 
 [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/chaimae-douhi/)
+=======
+# Micro-services-Spring-cloud
+>>>>>>> 32397a0ae776a740dd7ff38715bf187a6ccd71a8
