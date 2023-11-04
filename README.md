@@ -137,14 +137,14 @@ la sérialisation et la désérialisation des données JSON.
   @Data @NoArgsConstructor
   @AllArgsConstructor
   public class Bill {
-  @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private Long id;
-  private Date billingDate;
-  @OneToMany(mappedBy = "bill")
-  private Collection<ProductItem> productItems;
-  private Long customerId;
-  @Transient
-  private Customer customer;
+      @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+      private Long id;
+      private Date billingDate;
+      @OneToMany(mappedBy = "bill")
+      private Collection<ProductItem> productItems;
+      private Long customerId;
+      @Transient
+      private Customer customer;
   }
 ```
 * ProductItem entity
